@@ -1,16 +1,33 @@
-import random as rd
+import random
+turns = ['rock', 'paper', 'scissors']
+human_turns = []
+computer_turns = []
 
-human_turn = input('(R)ock, (P)aper , (S)cissors : ')
-computer_turn = rd.choice(["Rock","Paper","Scissors"])
-print("computer chooses : " + computer_turn)
-if human_turn == computer_turn:
+
+while(True):
+    human_turn = input("Enter your turn, or type exit: ")
+    computer_turn = random.choice(turns)
+
+    human_turns.append(human_turn)
+    computer_turns.append(computer_turn)
+
+    if human_turn == 'exit':
+        print('Thank you for playing! Bye bye')
+    break
+
+    print(f'Human:{human_turn} vs. Computer:{computer_turn}')
+    if human_turn == computer_turn:
         print('Draw!')
-elif human_turn == 'Rock' and computer_turn == 'Scissors':
-    print('Human Wins')
-elif human_turn == 'Paper' and computer_turn == 'Rock':
-    print('Human Wins')
-elif human_turn == 'Scisors' and computer_turn == 'Paper':
-    print('Human Wins') 
-else:
-    print('Computer Wins!')
-    
+    elif human_turn == 'rock' and computer_turn == 'scissors':
+        print('Human wins!')
+    elif human_turn == 'paper' and computer_turn == 'rock':
+        print('Human wins!')
+    elif human_turn == 'scissors' and computer_turn == 'paper':
+        print('Human wins!')
+    else:
+        print('Computer wins!')
+
+times_played = {len(human_turns)-1}
+print(f'You have played {times_played} times')
+print(human_turns)
+print(computer_turns)
